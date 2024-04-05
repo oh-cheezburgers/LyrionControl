@@ -1,0 +1,36 @@
+{
+  "params": [
+    "",
+    [
+      "albums",
+      0,
+      5
+    ]
+  ],
+  "method": "slim.request",
+  "result": {
+    "count": 763,
+    "albums_loop": [
+      {
+        "album": "✝",
+        "id": 1816
+      },
+      {
+        "album": "10,000 Days",
+        "id": 2150
+      },
+      {
+        "album": "1000 Forms of Fear",
+        "id": 1595
+      },
+      {
+        "album": "100th Window",
+        "id": 1871
+      },
+      {
+        "album": "The 12 Year Old Genius",
+        "id": 2042
+      }
+    ]
+  }
+}

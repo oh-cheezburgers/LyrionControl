@@ -1,0 +1,50 @@
+{
+  "params": [
+    "",
+    [
+      "players",
+      "0",
+      "5"
+    ]
+  ],
+  "method": "slim.request",
+  "result": {
+    "count": 2,
+    "players_loop": [
+      {
+        "seq_no": 0,
+        "playerid": "bb:bb:15:02:8d:a7",
+        "displaytype": "none",
+        "connected": 1,
+        "ip": "192.168.0.21:49830",
+        "model": "squeezelite",
+        "name": "KEF LSX",
+        "firmware": 0,
+        "uuid": null,
+        "isplayer": 1,
+        "canpoweroff": 1,
+        "isplaying": 0,
+        "playerindex": "0",
+        "power": 1,
+        "modelname": "UPnPBridge"
+      },
+      {
+        "seq_no": 0,
+        "playerid": "70:85:c2:a8:e6:8c",
+        "displaytype": "none",
+        "connected": 1,
+        "ip": "192.168.0.21:49877",
+        "model": "squeezelite",
+        "name": "SqueezeLite",
+        "firmware": "v1.9.9-1432",
+        "uuid": null,
+        "isplayer": 1,
+        "canpoweroff": 1,
+        "isplaying": 0,
+        "playerindex": 1,
+        "power": 1,
+        "modelname": "SqueezeLite"
+      }
+    ]
+  }
+}

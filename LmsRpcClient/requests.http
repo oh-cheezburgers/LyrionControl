@@ -1,0 +1,91 @@
+@host = http://media-server:9000/jsonrpc.js
+# Get album tracks
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["", ["songs", "0", "100", "search: touch", "tags:t, d, u, J, e"]] }
+###
+# Play song
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["bb:bb:15:02:8d:a7", ["playlist", "play", "file:///C:/Users/Luke/Music/Justice/AAB5~1/01%20Genesis.flac"]] }
+###
+
+# Get albums
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["", ["albums", "0", "100", "artist_id:4223", "tags: E"]] }
+###
+
+# Get server status
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["", ["serverstatus", "0", "100"]] }
+###
+
+# Get player status
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["bb:bb:15:02:8d:a7", ["status", "0", "100"]] }
+###
+
+# Play the current playlist
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["bb:bb:15:02:8d:a7", ["play"]] }
+###
+
+# Stop the current playlist
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["bb:bb:15:02:8d:a7", ["stop"]] }
+###
+
+# Pause the current playlist
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["bb:bb:15:02:8d:a7", ["pause"]] }
+###
+
+# Seek to a position in the current song
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["bb:bb:15:02:8d:a7", ["time", "60"]] }
+###
+
+# Sets a players volume
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["bb:bb:15:02:8d:a7", ["mixer", "volume", "10"]] }
+###
+
+# Sets a players volume
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["58:ce:2a:74:bc:0a", ["playlist", "index", "+1"]] }
+###
+
+# Search
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["", ["search", "0", "20", "term:al", "tags:e"]] }
+###
+
+GET {{host}}
+Content-Type: application/json
+
+{ "method": "slim.request", "params": ["", ["artists", "0", "100", "role_id:ALBUMARTIST", "tags:E", "include_online_only_artists:0"]] }
+###
+
+
