@@ -26,4 +26,22 @@
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TestData\Minor Wiley - Relatives - EP\cover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Minor Wiley - Relatives - EP\Minor Wiley - Relatives - EP - 01 Sharing Ceilings.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Minor Wiley - Relatives - EP\Minor Wiley - Relatives - EP - 02 Sidewalk Serpents.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Minor Wiley - Relatives - EP\Minor Wiley - Relatives - EP - 03 See Two.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestData\Minor Wiley - Relatives - EP\Minor Wiley - Relatives - EP - 04 Cakewalk Culture.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

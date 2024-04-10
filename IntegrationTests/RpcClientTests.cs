@@ -18,9 +18,11 @@ namespace LmsMaui.JsonRpcClient.IntegrationTests
         [ClassInitialize]
         public static async Task ClassInitialize(TestContext context)
         {
+            var dir = Directory.GetCurrentDirectory() + "\\TestData";
             container = new ContainerBuilder()
                             .WithImage("lmscommunity/logitechmediaserver:latest")
                             .WithName("lms")
+                            .WithBindMount(Directory.GetCurrentDirectory() + "\\TestData", "/music")
                             .WithPortBinding(3483, 3483)
                             .WithPortBinding(HostPort, HostPort)
                             .WithExposedPort(3483)
