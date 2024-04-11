@@ -59,8 +59,17 @@ namespace LmsMaui.JsonRpcClient.IntegrationTests
                 Method = RpcMethod.SlimRequest,
                 Result = new Result
                 {
-                    AlbumsLoop = null,
-                    Count = 0
+                    AlbumsLoop = new List<Albums>
+                    {
+                        new Albums
+                        {
+                            Album = "Relatives - EP",
+                            ArtworkTrackId = null!,
+                            Id = 1,
+                            Title = null!
+                        }
+                    },
+                    Count = 1
                 },
                 Params = new ArrayList()
                 {
