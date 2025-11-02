@@ -7,6 +7,7 @@ namespace LyrionControl.JsonRpcClient.Responses
     public class ServerStatusResponse : ServerStatusQuery
     {
 #pragma warning disable CA1707 // Identifiers should not contain underscores
+        [JsonPropertyName("result")]
         public Result? _Result { get; set; }
 #pragma warning restore CA1707 // Identifiers should not contain underscores
 
