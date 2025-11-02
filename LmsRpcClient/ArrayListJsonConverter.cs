@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using System.Text.Json;
 
-namespace LmsMaui.JsonRpcClient
+namespace LyrionControl.JsonRpcClient
 {
     public class ArrayListJsonConverter : JsonConverter<ArrayList>
     {

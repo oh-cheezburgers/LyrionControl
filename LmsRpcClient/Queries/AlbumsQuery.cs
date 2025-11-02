@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Text.Json.Serialization;
 
-namespace LmsMaui.JsonRpcClient.Queries
+namespace LyrionControl.JsonRpcClient.Queries
 {
     public class AlbumsQuery : IRequest
     {

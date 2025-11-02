@@ -2,10 +2,10 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using FluentAssertions;
-using LmsMaui.JsonRpcClient.Responses;
-using static LmsMaui.JsonRpcClient.Responses.PlayersResponse;
+using LyrionControl.JsonRpcClient.Responses;
+using static LyrionControl.JsonRpcClient.Responses.PlayersResponse;
 
-namespace LmsMaui.JsonRpcClient.UnitTests
+namespace LyrionControl.JsonRpcClient.UnitTests
 {
     [TestClass]
     public class PlayersResponseTests

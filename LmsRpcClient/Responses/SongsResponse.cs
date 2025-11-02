@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
-using LmsMaui.JsonRpcClient.Queries;
+using LyrionControl.JsonRpcClient.Queries;
 
-namespace LmsMaui.JsonRpcClient.Responses
+namespace LyrionControl.JsonRpcClient.Responses
 {
     public class SongsResponse : SongsQuery
     {

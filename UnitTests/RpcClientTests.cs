@@ -2,14 +2,14 @@
 using Moq.Contrib.HttpClient;
 using System.Collections;
 using FluentAssertions;
-using LmsMaui.JsonRpcClient.Responses;
-using LmsMaui.JsonRpcClient.Queries;
-using static LmsMaui.JsonRpcClient.Responses.PlayersResponse;
+using LyrionControl.JsonRpcClient.Responses;
+using LyrionControl.JsonRpcClient.Queries;
+using static LyrionControl.JsonRpcClient.Responses.PlayersResponse;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace LmsMaui.JsonRpcClient.Tests
+namespace LyrionControl.JsonRpcClient.Tests
 {
     [TestClass()]
     public class RpcClientTests

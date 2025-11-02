@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace LmsMaui.JsonRpcClient.Queries
+namespace LyrionControl.JsonRpcClient.Queries
 {
     public class ArtistsQuery : IRequest
     {

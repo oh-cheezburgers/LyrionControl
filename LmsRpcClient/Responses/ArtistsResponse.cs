@@ -1,4 +1,4 @@
-﻿using LmsMaui.JsonRpcClient.Queries;
+﻿using LyrionControl.JsonRpcClient.Queries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace LmsMaui.JsonRpcClient.Responses
+namespace LyrionControl.JsonRpcClient.Responses
 {
     public class ArtistsResponse : ArtistsQuery
     {

@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
-using LmsMaui.JsonRpcClient.Responses;
+using LyrionControl.JsonRpcClient.Responses;
 
-namespace LmsMaui.JsonRpcClient.UnitTests
+namespace LyrionControl.JsonRpcClient.UnitTests
 {
     [TestClass]
     public class AlbumsResponseTests

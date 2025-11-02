@@ -1,11 +1,11 @@
-﻿using LmsMaui.JsonRpcClient.Queries;
+﻿using LyrionControl.JsonRpcClient.Queries;
 using System.Collections;
 
-namespace LmsMaui.JsonRpcClient.Builders
-{    
+namespace LyrionControl.JsonRpcClient.Builders
+{
     public class SongsQueryBuilder
     {
-        private readonly SongsQuery request;  
+        private readonly SongsQuery request;
         private string albumId;
         private List<string> tags = new List<string>();
 
@@ -45,12 +45,12 @@ namespace LmsMaui.JsonRpcClient.Builders
             return this;
         }
 
-        public SongsQueryBuilder WithTrackNumber() 
+        public SongsQueryBuilder WithTrackNumber()
         {
             tags.Add("t");
             return this;
         }
-        
+
         public SongsQueryBuilder WithDuration()
         {
             tags.Add("d");
@@ -82,10 +82,10 @@ namespace LmsMaui.JsonRpcClient.Builders
         }
 
         public SongsQuery Build()
-        {            
+        {
             var list = (List<string>)request.Params[1];
             list.Insert(3, $"album_id:{albumId}");
-            if(tags.Count > 0)
+            if (tags.Count > 0)
             {
                 list.Insert(4, $"tags:{string.Join(",", tags)}");
             }

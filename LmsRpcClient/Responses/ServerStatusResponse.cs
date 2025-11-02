@@ -1,7 +1,7 @@
 ﻿using System.Text.Json.Serialization;
-using LmsMaui.JsonRpcClient.Queries;
+using LyrionControl.JsonRpcClient.Queries;
 
-namespace LmsMaui.JsonRpcClient.Responses
+namespace LyrionControl.JsonRpcClient.Responses
 {
     public class ServerStatusResponse : ServerStatusQuery
     {
@@ -22,13 +22,13 @@ namespace LmsMaui.JsonRpcClient.Responses
             public int PlayerCount { get; set; }
 
             [JsonPropertyName("lastscan")]
-            public string LastScan { get; set; }
+            public long LastScan { get; set; }
 
             [JsonPropertyName("info total artists")]
             public int InfoTotalArtists { get; set; }
 
             [JsonPropertyName("httpport")]
-            public string HttpPort { get; set; }
+            public int HttpPort { get; set; }
 
             [JsonPropertyName("ip")]
             public string IP { get; set; }

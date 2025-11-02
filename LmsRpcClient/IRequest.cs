@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace LmsMaui.JsonRpcClient
+namespace LyrionControl.JsonRpcClient
 {
     public interface IRequest
     {

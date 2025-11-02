@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace LmsMaui.JsonRpcClient
+namespace LyrionControl.JsonRpcClient
 {
     public class RpcClient
     {

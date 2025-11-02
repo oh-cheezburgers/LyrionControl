@@ -1,7 +1,7 @@
-﻿using LmsMaui.JsonRpcClient.Queries;
+﻿using LyrionControl.JsonRpcClient.Queries;
 using System.Text.Json.Serialization;
 
-namespace LmsMaui.JsonRpcClient.Responses
+namespace LyrionControl.JsonRpcClient.Responses
 {
     public class StatusResponse : StatusQuery
     {

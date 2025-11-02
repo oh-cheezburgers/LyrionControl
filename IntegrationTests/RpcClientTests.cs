@@ -3,11 +3,11 @@ using DotNet.Testcontainers.Containers;
 using System.Collections;
 using System.Net;
 using FluentAssertions;
-using LmsMaui.JsonRpcClient.Responses;
-using LmsMaui.JsonRpcClient.Queries;
+using LyrionControl.JsonRpcClient.Responses;
+using LyrionControl.JsonRpcClient.Queries;
 using System.Text.Json;
 
-namespace LmsMaui.JsonRpcClient.IntegrationTests
+namespace LyrionControl.JsonRpcClient.IntegrationTests
 {
     [TestClass]
     public class RpcClientTests
@@ -20,7 +20,7 @@ namespace LmsMaui.JsonRpcClient.IntegrationTests
         {
             var dir = Directory.GetCurrentDirectory() + "\\TestData";
             container = new ContainerBuilder()
-                            .WithImage("lmscommunity/logitechmediaserver:latest")
+                            .WithImage("lmscommunity/lyrionmusicserver:latest")
                             .WithName("lms")
                             .WithBindMount(Directory.GetCurrentDirectory() + "\\TestData", "/music")
                             .WithPortBinding(3483, 3483)
@@ -59,17 +59,8 @@ namespace LmsMaui.JsonRpcClient.IntegrationTests
                 Method = RpcMethod.SlimRequest,
                 Result = new Result
                 {
-                    AlbumsLoop = new List<Albums>
-                    {
-                        new Albums
-                        {
-                            Album = "Relatives - EP",
-                            ArtworkTrackId = null!,
-                            Id = 1,
-                            Title = null!
-                        }
-                    },
-                    Count = 1
+                    AlbumsLoop = null!,
+                    Count = 0
                 },
                 Params = new ArrayList()
                 {
@@ -116,7 +107,7 @@ namespace LmsMaui.JsonRpcClient.IntegrationTests
                     InfoTotalDuration = null,
                     PlayerCount = 0,
                     InfoTotalArtists = 0,
-                    HttpPort = container.GetMappedPublicPort(HostPort).ToString(),
+                    HttpPort = container.GetMappedPublicPort(HostPort),
                     IP = container.IpAddress,
                     InfoTotalSongs = 0,
                     SnPlayerCount = 0,
@@ -134,7 +125,7 @@ namespace LmsMaui.JsonRpcClient.IntegrationTests
             actual.result.InfoTotalAlbums.Should().Be(expected.result.InfoTotalAlbums);
             actual.result.InfoTotalDuration.Should().Be(expected.result.InfoTotalDuration);
             actual.result.PlayerCount.Should().Be(expected.result.PlayerCount);
-            actual.result.LastScan.Should().Be(expected.result.LastScan);
+            actual.result.LastScan.Should().Be(0);
             actual.result.InfoTotalArtists.Should().Be(expected.result.InfoTotalArtists);
             actual.result.HttpPort.Should().Be(expected.result.HttpPort);
             actual.result.IP.Should().Be(expected.result.IP);

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
-using LmsMaui.JsonRpcClient.Queries;
+using LyrionControl.JsonRpcClient.Queries;
 
-namespace LmsMaui.JsonRpcClient.Builders
+namespace LyrionControl.JsonRpcClient.Builders
 {
     public class PlayersQueryBuilder
 

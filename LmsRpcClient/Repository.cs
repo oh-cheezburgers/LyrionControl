@@ -1,7 +1,7 @@
-﻿using LmsMaui.JsonRpcClient.Responses;
-using LmsMaui.JsonRpcClient.Builders;
+﻿using LyrionControl.JsonRpcClient.Responses;
+using LyrionControl.JsonRpcClient.Builders;
 
-namespace LmsMaui.JsonRpcClient
+namespace LyrionControl.JsonRpcClient
 {
     public class Repository
     {

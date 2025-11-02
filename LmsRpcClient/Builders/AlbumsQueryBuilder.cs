@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
-using LmsMaui.JsonRpcClient.Queries;
+using LyrionControl.JsonRpcClient.Queries;
 
-namespace LmsMaui.JsonRpcClient.Builders
+namespace LyrionControl.JsonRpcClient.Builders
 {
     public class AlbumsQueryBuilder
     {
@@ -52,7 +52,7 @@ namespace LmsMaui.JsonRpcClient.Builders
             return this;
         }
 
-        public AlbumsQueryBuilder WithArtworTrackId() 
+        public AlbumsQueryBuilder WithArtworTrackId()
         {
             tags.Add("j");
             return this;
@@ -64,10 +64,10 @@ namespace LmsMaui.JsonRpcClient.Builders
             if (!string.IsNullOrWhiteSpace(artistId))
             {
                 list.Add("artist_id:" + artistId);
-            }            
+            }
             if (tags.Count > 0)
             {
-                var tagsString = "tags: " + String.Join(",", tags);                
+                var tagsString = "tags: " + String.Join(",", tags);
                 list.Add(tagsString);
             }
             return request;

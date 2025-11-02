@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using LmsMaui.JsonRpcClient.Builders;
-using LmsMaui.JsonRpcClient.Queries;
+using LyrionControl.JsonRpcClient.Builders;
+using LyrionControl.JsonRpcClient.Queries;
 using System.Collections;
 
-namespace LmsMaui.JsonRpcClient.UnitTests
+namespace LyrionControl.JsonRpcClient.UnitTests
 {
     [TestClass]
     public class PlayersQueryBuilderTests

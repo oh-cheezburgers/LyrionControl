@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-namespace LmsMaui.JsonRpcClient.Commands
+namespace LyrionControl.JsonRpcClient.Commands
 {
     public class PauseCommandHandler
     {        

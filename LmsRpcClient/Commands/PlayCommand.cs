@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Text.Json.Serialization;
 
-namespace LmsMaui.JsonRpcClient.Commands
+namespace LyrionControl.JsonRpcClient.Commands
 {
     public class PlayCommand : IRequest
     {

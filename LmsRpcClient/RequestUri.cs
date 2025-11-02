@@ -1,4 +1,4 @@
-﻿namespace LmsMaui.JsonRpcClient
+﻿namespace LyrionControl.JsonRpcClient
 {
     public static class RequestUri
     {
