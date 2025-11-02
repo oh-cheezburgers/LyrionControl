@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LyrionControl", "LmsRpcClient\LyrionControl.csproj", "{E4FFBE3A-653A-48EF-9216-17AAEDF5629F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LyrionControl", "LyrionControl\LyrionControl.csproj", "{E4FFBE3A-653A-48EF-9216-17AAEDF5629F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LyrionControl.IntegrationTests", "IntegrationTests\LyrionControl.IntegrationTests.csproj", "{E572DCCE-8AC1-433D-ACD5-3A50B59E6791}"
 EndProject
