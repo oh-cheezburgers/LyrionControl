@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LmsRpcClient", "LmsRpcClient\LmsRpcClient.csproj", "{E4FFBE3A-653A-48EF-9216-17AAEDF5629F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LyrionControl", "LmsRpcClient\LyrionControl.csproj", "{E4FFBE3A-653A-48EF-9216-17AAEDF5629F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{E572DCCE-8AC1-433D-ACD5-3A50B59E6791}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LyrionControl.IntegrationTests", "IntegrationTests\LyrionControl.IntegrationTests.csproj", "{E572DCCE-8AC1-433D-ACD5-3A50B59E6791}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{819FFE51-3F0C-4E98-B812-20DC344D13BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LyrionControl.UnitTests", "UnitTests\LyrionControl.UnitTests.csproj", "{819FFE51-3F0C-4E98-B812-20DC344D13BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
