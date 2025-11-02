@@ -6,7 +6,9 @@ namespace LyrionControl.JsonRpcClient.Responses
     public class SongsResponse : SongsQuery
     {
         [JsonPropertyName("result")]
-        public Result result { get; set; }
+#pragma warning disable CA1707 // Identifiers should not contain underscores
+        public Result? _Result { get; set; }
+#pragma warning restore CA1707 // Identifiers should not contain underscores
 
         public sealed class Result
         {
@@ -14,7 +16,7 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int Count { get; init; }
 
             [JsonPropertyName("titles_loop")]
-            public List<Song> TitlesLoop { get; set; }
+            public List<Song>? TitlesLoop { get; set; }
         }
 
         public sealed class Song
@@ -24,28 +26,28 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int Id { get; set; }
 
             [JsonPropertyName("title")]
-            public string Title { get; set; }
+            public string? Title { get; set; }
 
             [JsonPropertyName("genre")]
-            public string Genre { get; set; }
+            public string? Genre { get; set; }
 
             [JsonPropertyName("album")]
-            public string Album { get; set; }
+            public string? Album { get; set; }
 
             [JsonPropertyName("duration")]
-            public string Duration { get; set; }
+            public string? Duration { get; set; }
 
             [JsonPropertyName("tracknum")]
-            public string TrackNum { get; set; }
+            public string? TrackNum { get; set; }
 
             [JsonPropertyName("url")]
-            public string Url { get; set; }
+            public string? Url { get; set; }
 
             [JsonPropertyName("artwork_track_id")]
-            public string ArtworkTrackId { get; set; }
+            public string? ArtworkTrackId { get; set; }
 
             [JsonPropertyName("album_id")]
-            public string AlbumId { get; set; }
+            public string? AlbumId { get; set; }
 
         }
 

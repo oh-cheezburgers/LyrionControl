@@ -16,7 +16,7 @@ namespace LyrionControl.JsonRpcClient.UnitTests
             var result = JsonSerializer.Deserialize<AlbumsResponse>(testData);
             
             // Assert
-            var first = result.Result;
+            var first = result?._Result;
         }
     }
 }

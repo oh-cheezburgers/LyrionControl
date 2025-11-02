@@ -13,10 +13,10 @@ namespace LyrionControl.JsonRpcClient.IntegrationTests
     public class RpcClientTests
     {
         private const int HostPort = 9000;
-        private static IContainer container;
+        private static IContainer? container;
 
         [ClassInitialize]
-        public static async Task ClassInitialize(TestContext context)
+        public static async Task ClassInitializeAsync(TestContext context)
         {
             var dir = Directory.GetCurrentDirectory() + "\\TestData";
             container = new ContainerBuilder()
@@ -57,7 +57,7 @@ namespace LyrionControl.JsonRpcClient.IntegrationTests
             var expected = new AlbumsResponse
             {
                 Method = RpcMethod.SlimRequest,
-                Result = new Result
+                _Result = new Result
                 {
                     AlbumsLoop = null!,
                     Count = 0
@@ -77,7 +77,7 @@ namespace LyrionControl.JsonRpcClient.IntegrationTests
             var sut = new RpcClient(new HttpClient { BaseAddress = new Uri($"http://localhost:{HostPort}") });
 
             // Act
-            var result = await sut.MakeRequest<AlbumsResponse>(request);
+            var result = await sut.MakeRequestAsync<AlbumsResponse>(request);
 
             // Assert
             result.Should().BeEquivalentTo(expected);
@@ -101,13 +101,13 @@ namespace LyrionControl.JsonRpcClient.IntegrationTests
             };
             var expected = new ServerStatusResponse
             {
-                result = new ServerStatusResponse.Result
+                _Result = new ServerStatusResponse.Result
                 {
                     InfoTotalAlbums = 0,
                     InfoTotalDuration = null,
                     PlayerCount = 0,
                     InfoTotalArtists = 0,
-                    HttpPort = container.GetMappedPublicPort(HostPort),
+                    HttpPort = container!.GetMappedPublicPort(HostPort),
                     IP = container.IpAddress,
                     InfoTotalSongs = 0,
                     SnPlayerCount = 0,
@@ -118,22 +118,22 @@ namespace LyrionControl.JsonRpcClient.IntegrationTests
             var sut = new RpcClient(new HttpClient { BaseAddress = new Uri($"http://localhost:{HostPort}") });
 
             // Act
-            var actual = await sut.MakeRequest<ServerStatusResponse>(request);
+            var actual = await sut.MakeRequestAsync<ServerStatusResponse>(request);
 
             // Assert
-            actual.result.Version.Should().NotBeEmpty();
-            actual.result.InfoTotalAlbums.Should().Be(expected.result.InfoTotalAlbums);
-            actual.result.InfoTotalDuration.Should().Be(expected.result.InfoTotalDuration);
-            actual.result.PlayerCount.Should().Be(expected.result.PlayerCount);
-            actual.result.LastScan.Should().Be(0);
-            actual.result.InfoTotalArtists.Should().Be(expected.result.InfoTotalArtists);
-            actual.result.HttpPort.Should().Be(expected.result.HttpPort);
-            actual.result.IP.Should().Be(expected.result.IP);
-            actual.result.UUID.Should().NotBeEmpty();
-            actual.result.InfoTotalSongs.Should().Be(expected.result.InfoTotalSongs);
-            actual.result.SnPlayerCount.Should().Be(expected.result.SnPlayerCount);
-            actual.result.OtherPlayerCount.Should().Be(expected.result.OtherPlayerCount);
-            actual.result.InfoTotalGenres.Should().Be(expected.result.InfoTotalGenres);
+            actual?._Result?.Version.Should().NotBeEmpty();
+            actual?._Result?.InfoTotalAlbums.Should().Be(expected._Result.InfoTotalAlbums);
+            actual?._Result?.InfoTotalDuration.Should().Be(expected._Result.InfoTotalDuration);
+            actual?._Result?.PlayerCount.Should().Be(expected._Result.PlayerCount);
+            actual?._Result?.LastScan.Should().Be(0);
+            actual?._Result?.InfoTotalArtists.Should().Be(expected._Result.InfoTotalArtists);
+            actual?._Result?.HttpPort.Should().Be(expected._Result.HttpPort);
+            actual?._Result?.IP.Should().Be(expected._Result.IP);
+            actual?._Result?.UUID.Should().NotBeEmpty();
+            actual?._Result?.InfoTotalSongs.Should().Be(expected._Result.InfoTotalSongs);
+            actual?._Result?.SnPlayerCount.Should().Be(expected._Result.SnPlayerCount);
+            actual?._Result?.OtherPlayerCount.Should().Be(expected._Result.OtherPlayerCount);
+            actual?._Result?.InfoTotalGenres.Should().Be(expected._Result.InfoTotalGenres);
         }
     }
 }

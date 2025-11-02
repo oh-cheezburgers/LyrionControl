@@ -1,18 +1,22 @@
 ﻿using System.Text.Json.Serialization;
+using LyrionControl.JsonRpcClient.JsonConverters;
 using LyrionControl.JsonRpcClient.Queries;
 
 namespace LyrionControl.JsonRpcClient.Responses
 {
     public class PlayersResponse : PlayersQuery
     {
-        public Result result { get; set; }
+#pragma warning disable CA1707 // Identifiers should not contain underscores
+        [JsonPropertyName("result")]
+        public Result? _Result { get; set; }
+#pragma warning restore CA1707 // Identifiers should not contain underscores
         public sealed class Result
         {
             [JsonPropertyName("count")]
             public int Count { get; init; }
 
             [JsonPropertyName("players_loop")]
-            public List<Player> PlayersLoop { get; set; }
+            public List<Player>? PlayersLoop { get; set; }
         }
         public sealed class Player
         {
@@ -20,29 +24,29 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int SeqNo { get; set; }
 
             [JsonPropertyName("playerid")]
-            public string PlayerId { get; set; }
+            public string? PlayerId { get; set; }
 
             [JsonPropertyName("displaytype")]
-            public string DisplayType { get; set; }
+            public string? DisplayType { get; set; }
 
             [JsonPropertyName("connected")]
             public int Connected { get; set; }
 
             [JsonPropertyName("ip")]
-            public string IP { get; set; }
+            public string? IP { get; set; }
 
             [JsonPropertyName("model")]
-            public string Model { get; set; }
+            public string? Model { get; set; }
 
             [JsonPropertyName("name")]
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             [JsonConverter(typeof(EverythingToStringJsonConverter))]
             [JsonPropertyName("firmware")]
-            public string Firmware { get; set; }
+            public string? Firmware { get; set; }
 
             [JsonPropertyName("uuid")]
-            public string UUID { get; set; }
+            public string? UUID { get; set; }
 
             [JsonPropertyName("isplayer")]
             public int IsPlayer { get; set; }
@@ -60,7 +64,7 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int Power { get; set; }
 
             [JsonPropertyName("modelname")]
-            public string ModelName { get; set; }
+            public string? ModelName { get; set; }
         }
     }
 }

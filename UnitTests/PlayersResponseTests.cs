@@ -27,7 +27,7 @@ namespace LyrionControl.JsonRpcClient.UnitTests
                         "5"
                     }
                 },
-                result = new PlayersResponse.Result
+                _Result = new PlayersResponse.Result
                 {
                     Count = 2,
                     PlayersLoop = new List<Player>
@@ -73,10 +73,12 @@ namespace LyrionControl.JsonRpcClient.UnitTests
 
             };
             var testData = File.ReadAllText(@".\PlayersResponse.json");
+#pragma warning disable CA1869 // Cache and reuse 'JsonSerializerOptions' instances
             var options = new JsonSerializerOptions
             {
                 NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString
             };
+#pragma warning restore CA1869 // Cache and reuse 'JsonSerializerOptions' instances
             options.Converters.Add(new ArrayListJsonConverter());
 
             // Act

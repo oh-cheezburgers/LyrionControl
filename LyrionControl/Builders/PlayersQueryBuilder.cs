@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using LyrionControl.JsonRpcClient.Queries;
 
 namespace LyrionControl.JsonRpcClient.Builders
@@ -27,13 +26,19 @@ namespace LyrionControl.JsonRpcClient.Builders
 
         public PlayersQueryBuilder Start(int start)
         {
-            ((ArrayList)request.Params[1]).Insert(1, start);
+            if (request.Params != null)
+            {
+                ((ArrayList?)request.Params[1])?.Insert(1, start);
+            }
             return this;
         }
 
         public PlayersQueryBuilder ItemsPerResponse(int itemsPerResponse)
         {
-            ((ArrayList)request.Params[1]).Insert(2, itemsPerResponse);
+            if (request.Params != null)
+            {
+                ((ArrayList?)request.Params[1])?.Insert(2, itemsPerResponse);
+            }
             return this;
         }
 

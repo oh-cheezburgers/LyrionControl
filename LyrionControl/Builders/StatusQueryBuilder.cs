@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace LyrionControl.JsonRpcClient.Builders
 {
-    public class StatusQueryBuilder : StatusQuery
+    public class StatusQueryBuilder
     {
         private readonly StatusQuery request;        
         public StatusQueryBuilder(string playerId)

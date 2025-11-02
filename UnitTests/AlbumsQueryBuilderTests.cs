@@ -2,6 +2,7 @@
 using LyrionControl.JsonRpcClient.Builders;
 using LyrionControl.JsonRpcClient.Queries;
 using System.Collections;
+using System.Globalization;
 
 namespace LyrionControl.JsonRpcClient.UnitTests
 {
@@ -24,8 +25,8 @@ namespace LyrionControl.JsonRpcClient.UnitTests
                     new List<string>
                     {
                         QueryTypes.Albums,
-                        start.ToString(),
-                        itemsPerResponse.ToString(),
+                        start.ToString(CultureInfo.InvariantCulture),
+                        itemsPerResponse.ToString(CultureInfo.InvariantCulture),
                         "tags: t,j"
                     }
                 }

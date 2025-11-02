@@ -48,20 +48,20 @@ namespace LyrionControl.JsonRpcClient.Tests
 
             var response = new AlbumsResponse
             {
-                Result = new Responses.Result
+                _Result = new Responses.Result
                 {
                     AlbumsLoop = null,
                     Count = 0
                 } 
             };
 
-            handler.SetupRequest(HttpMethod.Post, new Uri(mockedServerAddress, RequestUri.Uri))
+            handler.SetupRequest(HttpMethod.Post, new Uri(mockedServerAddress!, RequestUri.Uri))
                 .ReturnsJsonResponse(response);
 
-            var sut = new RpcClient(client);
+            var sut = new RpcClient(client!);
 
             // Act
-            var result = await sut.MakeRequest<AlbumsResponse>(request);
+            var result = await sut.MakeRequestAsync<AlbumsResponse>(request);
 
             // Assert
             result.Should().BeEquivalentTo(response);
@@ -99,7 +99,7 @@ namespace LyrionControl.JsonRpcClient.Tests
                         "5"
                     }
                 },                
-                result = new PlayersResponse.Result
+                _Result = new PlayersResponse.Result
                 {
                     Count = 1,
                     PlayersLoop = new List<Player>
@@ -149,16 +149,16 @@ namespace LyrionControl.JsonRpcClient.Tests
             {
                 NumberHandling = JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString
             };
-            handler.SetupRequest(HttpMethod.Post, new Uri(mockedServerAddress, RequestUri.Uri))
+            handler.SetupRequest(HttpMethod.Post, new Uri(mockedServerAddress!, RequestUri.Uri))
                 .ReturnsJsonResponse(response, serializeOptions);
 
-            var sut = new RpcClient(client);
+            var sut = new RpcClient(client!);
 
             // Act
             
 
             // Assert
-            var actual = await sut.MakeRequest<PlayersResponse>(request);
+            var actual = await sut.MakeRequestAsync<PlayersResponse>(request);
 
             actual.Should().BeEquivalentTo(response);
         }

@@ -1,42 +1,47 @@
 ﻿using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Globalization;
 
-public class EverythingToStringJsonConverter : JsonConverter<string>
+namespace LyrionControl.JsonRpcClient.JsonConverters
 {
-    public override string Read(ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options)
+
+    public class EverythingToStringJsonConverter : JsonConverter<string>
     {
+        public override string Read(ref Utf8JsonReader reader,
+            Type typeToConvert,
+            JsonSerializerOptions options)
+        {
 
-        if (reader.TokenType == JsonTokenType.String)
-        {
-            return reader.GetString() ?? String.Empty;
-        }
-        else if (reader.TokenType == JsonTokenType.Number)
-        {
-            var stringValue = reader.GetDouble();
-            return stringValue.ToString();
-        }
-        else if (reader.TokenType == JsonTokenType.False ||
-            reader.TokenType == JsonTokenType.True)
-        {
-            return reader.GetBoolean().ToString();
-        }
-        else if (reader.TokenType == JsonTokenType.StartObject)
-        {
-            reader.Skip();
-            return "(not supported)";
-        }
-        else
-        {
-            Console.WriteLine($"Unsupported token type: {reader.TokenType}");
+            if (reader.TokenType == JsonTokenType.String)
+            {
+                return reader.GetString() ?? String.Empty;
+            }
+            else if (reader.TokenType == JsonTokenType.Number)
+            {
+                var stringValue = reader.GetDouble();
+                return stringValue.ToString(CultureInfo.InvariantCulture);
+            }
+            else if (reader.TokenType == JsonTokenType.False ||
+                reader.TokenType == JsonTokenType.True)
+            {
+                return reader.GetBoolean().ToString(CultureInfo.InvariantCulture);
+            }
+            else if (reader.TokenType == JsonTokenType.StartObject)
+            {
+                reader.Skip();
+                return "(not supported)";
+            }
+            else
+            {
+                Console.WriteLine($"Unsupported token type: {reader.TokenType}");
 
-            throw new System.Text.Json.JsonException();
+                throw new JsonException();
+            }
         }
-    }
 
-    public override void Write(Utf8JsonWriter writer, string value, JsonSerializerOptions options)
-    {
-        writer.WriteStringValue(value);
+        public override void Write(Utf8JsonWriter writer, string value, JsonSerializerOptions options)
+        {
+            writer.WriteStringValue(value);
+        }
     }
 }

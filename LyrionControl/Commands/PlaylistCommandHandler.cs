@@ -11,7 +11,7 @@ namespace LyrionControl.JsonRpcClient.Commands
             rpcClient = new RpcClient(httpClient);
         }
 
-        public Task<PlaylistCommand> Index(string playerId, string index)
+        public Task<PlaylistCommand?> IndexAsync(string playerId, string index)
         {
             var request = new PauseCommand
             {
@@ -19,10 +19,10 @@ namespace LyrionControl.JsonRpcClient.Commands
                 Params = new ArrayList { playerId, new List<string>() { "playlist", "index", index } }
             };
             
-            return rpcClient.MakeRequest<PlaylistCommand>(request);
+            return rpcClient.MakeRequestAsync<PlaylistCommand>(request);
         }
         
-        public Task<PlaylistCommand> Play(string playerId, string url)
+        public Task<PlaylistCommand?> PlayAsync(string playerId, string url)
         {
             var request = new PauseCommand
             {
@@ -30,7 +30,7 @@ namespace LyrionControl.JsonRpcClient.Commands
                 Params = new ArrayList { playerId, new List<string>() { "playlist", "play", url } }
             };
 
-            return rpcClient.MakeRequest<PlaylistCommand>(request);
+            return rpcClient.MakeRequestAsync<PlaylistCommand>(request);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace LyrionControl.JsonRpcClient.Commands
             rpcClient = new RpcClient(httpClient);
         }
 
-        public Task<TimeCommand> Handle(string playerId, string time)
+        public Task<TimeCommand?> HandleAsync(string playerId, string time)
         {
             var request = new StopCommand
             {
@@ -19,7 +19,7 @@ namespace LyrionControl.JsonRpcClient.Commands
                 Params = new ArrayList { playerId, new List<string>() { "time", time } }
             };
             
-            return rpcClient.MakeRequest<TimeCommand>(request);
+            return rpcClient.MakeRequestAsync<TimeCommand>(request);
         }       
     }
 }

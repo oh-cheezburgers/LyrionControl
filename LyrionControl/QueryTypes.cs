@@ -6,12 +6,12 @@
 
         public const string ServerStatus = "serverstatus";
 
-        public static string Players = "players";
+        public const string Players = "players";
 
-        public static string Songs = "songs";
+        public const string Songs = "songs";
 
-        public static string Status = "status";
+        public const string Status = "status";
 
-        public static string Artists = "artists";   
+        public const string Artists = "artists";   
     }
 }

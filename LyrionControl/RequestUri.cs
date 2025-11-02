@@ -2,6 +2,6 @@
 {
     public static class RequestUri
     {
-        public static string Uri = "jsonrpc.js";
+        public const string Uri = "jsonrpc.js";
     }
 }

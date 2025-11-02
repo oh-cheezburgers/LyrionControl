@@ -1,17 +1,13 @@
 ﻿using LyrionControl.JsonRpcClient.Queries;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 
 namespace LyrionControl.JsonRpcClient.Builders
 {
     public class ArtistsQueryBuilder
     {
         private readonly ArtistsQuery request;
-        private string roleId;
+        private string? roleId;
         public ArtistsQueryBuilder()
         {
             request = new ArtistsQuery
@@ -30,15 +26,21 @@ namespace LyrionControl.JsonRpcClient.Builders
 
         public ArtistsQueryBuilder Start(int start)
         {
-            var list = (List<string>)request.Params[1];
-            list.Insert(1, start.ToString());
+            if (request.Params != null)
+            {
+                var list = (List<string>?)request.Params[1];
+                list?.Insert(1, start.ToString(CultureInfo.InvariantCulture));
+            }
             return this;
         }
 
         public ArtistsQueryBuilder ItemsPerResponse(int itemsPerResponse)
         {
-            var list = (List<string>)request.Params[1];
-            list.Insert(2, itemsPerResponse.ToString());
+            if (request.Params != null)
+            {
+                var list = (List<string>?)request.Params[1];
+                list?.Insert(2, itemsPerResponse.ToString(CultureInfo.InvariantCulture));
+            }
             return this;
         }
 
@@ -50,18 +52,24 @@ namespace LyrionControl.JsonRpcClient.Builders
 
         public ArtistsQuery Build()
         {
-            if (!string.IsNullOrEmpty(roleId))
+            if (request.Params != null)
             {
-                var list = (List<string>)request.Params[1];
-                list.Add("role_id:" + roleId);
+                if (!string.IsNullOrEmpty(roleId))
+                {
+                    var list = (List<string>?)request.Params[1];
+                    list?.Add("role_id:" + roleId);
+                }
             }
             return request;
         }
 
         public ArtistsQueryBuilder WithSearchTerm(string term)
         {
-            var list = (List<string>)request.Params[1];
-            list.Add("search:" + term);
+            if (request.Params != null)
+            {
+                var list = (List<string>?)request.Params[1];
+                list?.Add("search:" + term);
+            }
             return this;
         }
     }

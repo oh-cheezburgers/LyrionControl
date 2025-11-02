@@ -1,16 +1,19 @@
 ﻿using System.Text.Json.Serialization;
+using LyrionControl.JsonRpcClient.JsonConverters;
 using LyrionControl.JsonRpcClient.Queries;
 
 namespace LyrionControl.JsonRpcClient.Responses
 {
     public class ServerStatusResponse : ServerStatusQuery
     {
-        public Result result { get; set; }
+#pragma warning disable CA1707 // Identifiers should not contain underscores
+        public Result? _Result { get; set; }
+#pragma warning restore CA1707 // Identifiers should not contain underscores
 
         public sealed class Result
         {
             [JsonPropertyName("version")]
-            public string Version { get; set; }
+            public string? Version { get; set; }
 
             [JsonPropertyName("info total albums")]
             public int InfoTotalAlbums { get; set; }
@@ -31,7 +34,7 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int HttpPort { get; set; }
 
             [JsonPropertyName("ip")]
-            public string IP { get; set; }
+            public string? IP { get; set; }
 
             [JsonPropertyName("uuid")]
             public Guid UUID { get; set; }
@@ -49,7 +52,7 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int InfoTotalGenres { get; set; }
 
             [JsonPropertyName("players_loop")]
-            public List<Player> PlayersLoop { get; set; }
+            public List<Player>? PlayersLoop { get; set; }
         }   
 
         public class Player
@@ -58,29 +61,29 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int SeqNo { get; set; }
 
             [JsonPropertyName("playerid")]
-            public string PlayerId { get; set; }
+            public string? PlayerId { get; set; }
 
             [JsonPropertyName("displaytype")]
-            public string DisplayType { get; set; }
+            public string? DisplayType { get; set; }
 
             [JsonPropertyName("connected")]
             public int Connected { get; set; }
 
             [JsonPropertyName("ip")]
-            public string Ip { get; set; }
+            public string? Ip { get; set; }
 
             [JsonPropertyName("model")]
-            public string Model { get; set; }
+            public string? Model { get; set; }
 
             [JsonPropertyName("name")]
-            public string Name { get; set; }
+            public string? Name { get; set; }
 
             [JsonPropertyName("firmware")]
             [JsonConverter(typeof(EverythingToStringJsonConverter))]
-            public string Firmware { get; set; }
+            public string? Firmware { get; set; }
 
             [JsonPropertyName("uuid")]
-            public object Uuid { get; set; }
+            public object? Uuid { get; set; }
 
             [JsonPropertyName("isplayer")]
             public int IsPlayer { get; set; }
@@ -92,13 +95,13 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int IsPlaying { get; set; }
 
             [JsonPropertyName("playerindex")]
-            public string PlayerIndex { get; set; }
+            public string? PlayerIndex { get; set; }
 
             [JsonPropertyName("power")]
             public int Power { get; set; }
 
             [JsonPropertyName("modelname")]
-            public string ModelName { get; set; }
+            public string? ModelName { get; set; }
         }
 
     }

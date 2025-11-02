@@ -11,7 +11,7 @@ namespace LyrionControl.JsonRpcClient.Commands
             rpcClient = new RpcClient(httpClient);
         }
 
-        public Task<MixerVolumeCommand> Handle(string playerId, string volume)
+        public Task<MixerVolumeCommand?> HandleAsync(string playerId, string volume)
         {
             var request = new StopCommand
             {
@@ -19,7 +19,7 @@ namespace LyrionControl.JsonRpcClient.Commands
                 Params = new ArrayList { playerId, new List<string>() { "mixer", "volume", volume } }
             };
             
-            return rpcClient.MakeRequest<MixerVolumeCommand>(request);
+            return rpcClient.MakeRequestAsync<MixerVolumeCommand>(request);
         }       
     }
 }

@@ -1,4 +1,5 @@
-﻿using LyrionControl.JsonRpcClient.Queries;
+﻿using LyrionControl.JsonRpcClient.JsonConverters;
+using LyrionControl.JsonRpcClient.Queries;
 using System.Text.Json.Serialization;
 
 namespace LyrionControl.JsonRpcClient.Responses
@@ -6,7 +7,9 @@ namespace LyrionControl.JsonRpcClient.Responses
     public class StatusResponse : StatusQuery
     {
         [JsonPropertyName("result")]
-        public Result result { get; set; }        
+#pragma warning disable CA1707 // Identifiers should not contain underscores
+        public Result? _Result { get; set; }
+#pragma warning restore CA1707 // Identifiers should not contain underscores
 
         public sealed class Result
         {
@@ -17,7 +20,7 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int MixerVolume { get; set; }
 
             [JsonPropertyName("player_name")]
-            public string PlayerName { get; set; }
+            public string? PlayerName { get; set; }
 
             [JsonPropertyName("playlist_tracks")]
             public int PlaylistTracks { get; set; }
@@ -29,7 +32,7 @@ namespace LyrionControl.JsonRpcClient.Responses
             public double Time { get; set; }
 
             [JsonPropertyName("mode")]
-            public string Mode { get; set; }
+            public string? Mode { get; set; }
 
             [JsonPropertyName("playlist_timestamp")]
             public double PlaylistTimestamp { get; set; }
@@ -44,7 +47,7 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int Power { get; set; }
 
             [JsonPropertyName("playlist_mode")]
-            public string PlaylistMode { get; set; }
+            public string? PlaylistMode { get; set; }
 
             [JsonPropertyName("playlist_repeat")]
             public int PlaylistRepeat { get; set; }
@@ -54,7 +57,7 @@ namespace LyrionControl.JsonRpcClient.Responses
 
             [JsonPropertyName("playlist_cur_index")]
             [JsonConverter(typeof(EverythingToStringJsonConverter))]
-            public string PlaylistCurIndex { get; set; }
+            public string? PlaylistCurIndex { get; set; }
 
             [JsonPropertyName("signalstrength")]            
             public int SignalStrength { get; set; }
@@ -66,7 +69,7 @@ namespace LyrionControl.JsonRpcClient.Responses
             public int PlaylistShuffle { get; set; }
 
             [JsonPropertyName("player_ip")]
-            public string PlayerIp { get; set; }
+            public string? PlayerIp { get; set; }
         }       
     }
 }

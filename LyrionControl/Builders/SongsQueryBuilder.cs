@@ -1,12 +1,13 @@
 ﻿using LyrionControl.JsonRpcClient.Queries;
 using System.Collections;
+using System.Globalization;
 
 namespace LyrionControl.JsonRpcClient.Builders
 {
     public class SongsQueryBuilder
     {
         private readonly SongsQuery request;
-        private string albumId;
+        private string? albumId;
         private List<string> tags = new List<string>();
 
         public SongsQueryBuilder()
@@ -27,21 +28,27 @@ namespace LyrionControl.JsonRpcClient.Builders
 
         public SongsQueryBuilder Start(int start)
         {
-            var list = (List<string>)request.Params[1];
-            list.Insert(1, start.ToString());
+            if (request.Params != null)
+            {
+                var list = (List<string>?)request.Params[1];
+                list?.Insert(1, start.ToString(CultureInfo.InvariantCulture));
+            }
             return this;
         }
 
         public SongsQueryBuilder ItemsPerResponse(int itemsPerResponse)
         {
-            var list = (List<string>)request.Params[1];
-            list.Insert(2, itemsPerResponse.ToString());
+            if (request.Params != null)
+            {
+                var list = (List<string>?)request.Params[1];
+                list?.Insert(2, itemsPerResponse.ToString(CultureInfo.InvariantCulture));
+            }
             return this;
         }
 
         public SongsQueryBuilder WithAlbumId(int albumId)
         {
-            this.albumId = albumId.ToString();
+            this.albumId = albumId.ToString(CultureInfo.InvariantCulture);
             return this;
         }
 
@@ -70,8 +77,11 @@ namespace LyrionControl.JsonRpcClient.Builders
 
         public SongsQueryBuilder WithSearchTerm(string term)
         {
-            var list = (List<string>)request.Params[1];
-            list.Add("search:" + term);
+            if (request.Params != null)
+            {
+                var list = (List<string>?)request.Params[1];
+                list?.Add("search:" + term);
+            }
             return this;
         }
 
@@ -83,11 +93,14 @@ namespace LyrionControl.JsonRpcClient.Builders
 
         public SongsQuery Build()
         {
-            var list = (List<string>)request.Params[1];
-            list.Insert(3, $"album_id:{albumId}");
-            if (tags.Count > 0)
+            if (request.Params != null)
             {
-                list.Insert(4, $"tags:{string.Join(",", tags)}");
+                var list = (List<string>?)request.Params[1];
+                list?.Insert(3, $"album_id:{albumId}");
+                if (tags.Count > 0)
+                {
+                    list?.Insert(4, $"tags:{string.Join(",", tags)}");
+                }
             }
             return request;
         }
