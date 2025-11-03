@@ -1,37 +1,28 @@
 ﻿using System.Text.Json.Serialization;
-using LyrionControl.JsonRpcClient.Queries;
 
 namespace LyrionControl.JsonRpcClient.Responses
 {
-    public class AlbumsResponse : AlbumsQuery
+    public class AlbumsResponse : RequestEcho
     {
         [JsonPropertyName("result")]
-#pragma warning disable CA1707 // Identifiers should not contain underscores
-        public Result? _Result { get; set; }
-#pragma warning restore CA1707 // Identifiers should not contain underscores
+        public AlbumsResult? Result { get; set; }
     }
 
-    public sealed class Result
+    public class AlbumsResult
     {
         [JsonPropertyName("count")]
-        public int Count { get; init; }
+        public int Count { get; set; }
 
         [JsonPropertyName("albums_loop")]
-        public List<Albums>? AlbumsLoop { get; set; }
+        public List<Album>? AlbumsLoop { get; set; }
     }
 
-    public sealed class Albums
+    public class Album
     {
         [JsonPropertyName("album")]
-        public required string Album { get; set; }
+        public string? Name { get; set; }
 
         [JsonPropertyName("id")]
         public int Id { get; set; }
-
-        [JsonPropertyName("title")]
-        public string? Title { get; set; }
-
-        [JsonPropertyName("artwork_track_id")]
-        public string? ArtworkTrackId { get; set; }
     }
 }

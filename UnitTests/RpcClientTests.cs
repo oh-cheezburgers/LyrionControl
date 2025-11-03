@@ -48,7 +48,7 @@ namespace LyrionControl.JsonRpcClient.Tests
 
             var response = new AlbumsResponse
             {
-                _Result = new Responses.Result
+                Result = new Responses.AlbumsResult
                 {
                     AlbumsLoop = null,
                     Count = 0

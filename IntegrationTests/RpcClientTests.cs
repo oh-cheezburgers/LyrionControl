@@ -57,7 +57,7 @@ namespace LyrionControl.JsonRpcClient.IntegrationTests
             var expected = new AlbumsResponse
             {
                 Method = RpcMethod.SlimRequest,
-                _Result = new Result
+                Result = new AlbumsResult
                 {
                     AlbumsLoop = null!,
                     Count = 0
