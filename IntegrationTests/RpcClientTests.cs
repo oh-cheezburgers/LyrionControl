@@ -39,20 +39,7 @@ namespace LyrionControl.JsonRpcClient.IntegrationTests
         public async Task MakeRequest_MakesAlbumsRequest_ReturnsAlbumsResponse()
         {
             // Arrange
-            var request = new AlbumsQuery
-            {
-                Method = RpcMethod.SlimRequest,
-                Params = new ArrayList()
-                {
-                    string.Empty,
-                    new ArrayList
-                    {
-                        QueryTypes.Albums,
-                        0,
-                        5
-                    }
-                }
-            };
+            var request = new AlbumsQuery(0, 5);
 
             var expected = new AlbumsResponse
             {

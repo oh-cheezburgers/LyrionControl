@@ -5,7 +5,6 @@ using FluentAssertions;
 using LyrionControl.JsonRpcClient.Responses;
 using LyrionControl.JsonRpcClient.Queries;
 using static LyrionControl.JsonRpcClient.Responses.PlayersResponse;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -31,20 +30,7 @@ namespace LyrionControl.JsonRpcClient.Tests
         public async Task MakeRequest_MakesAlbumsRequest_ReturnsAlbumsResponse()
         {
             // Arrange          
-            var request = new AlbumsQuery() 
-            { 
-                Method = RpcMethod.SlimRequest, 
-                Params = new ArrayList() 
-                { 
-                    string.Empty, 
-                    new ArrayList 
-                    { 
-                        QueryTypes.Albums, 
-                        0, 
-                        5 
-                    } 
-                } 
-            };
+            var request = new AlbumsQuery(0, 5);
 
             var response = new AlbumsResponse
             {

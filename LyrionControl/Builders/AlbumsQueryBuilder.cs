@@ -10,20 +10,9 @@ namespace LyrionControl.JsonRpcClient.Builders
         private List<string> tags = new List<string>();
         private string? artistId;
 
-        public AlbumsQueryBuilder()
+        public AlbumsQueryBuilder(int start, int itemsPerResponse)
         {
-            request = new AlbumsQuery
-            {
-                Method = RpcMethod.SlimRequest,
-                Params = new ArrayList
-                {
-                    "",
-                    new List<string>
-                    {
-                        QueryTypes.Albums
-                    }
-                }
-            };
+            request = new AlbumsQuery(start, itemsPerResponse);
         }
 
         public AlbumsQueryBuilder Start(int start)
@@ -68,7 +57,7 @@ namespace LyrionControl.JsonRpcClient.Builders
         {
             if (request.Params != null)
             {
-                var list = (List<string>?)request.Params[1];
+                var list = (ArrayList?)request.Params[1];
                 if (!string.IsNullOrWhiteSpace(artistId))
                 {
                     list?.Add("artist_id:" + artistId);
@@ -86,7 +75,7 @@ namespace LyrionControl.JsonRpcClient.Builders
         {
             if (request.Params != null)
             {
-                var list = (List<string>?)request.Params[1];
+                var list = (ArrayList?)request.Params[1];
                 list?.Add("search:" + term);
             }
             return this;

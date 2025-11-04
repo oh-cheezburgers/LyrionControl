@@ -13,20 +13,7 @@ namespace LyrionControl.JsonRpcClient.UnitTests
         {
             // Arrange            
             var albumsQueryTestData = File.ReadAllText("./AlbumsQuery.json");
-            var albumsQuery = new AlbumsQuery() 
-            { 
-                Method = RpcMethod.SlimRequest, 
-                Params = new ArrayList() 
-                { 
-                    string.Empty, 
-                    new ArrayList 
-                    { 
-                        QueryTypes.Albums, 
-                        0,
-                        5 
-                    } 
-                }
-            };
+            var albumsQuery = new AlbumsQuery(0, 5);
             
             // Act
             var result = JsonSerializer.Serialize(albumsQuery);

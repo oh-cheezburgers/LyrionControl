@@ -2,7 +2,6 @@
 using LyrionControl.JsonRpcClient.Builders;
 using LyrionControl.JsonRpcClient.Queries;
 using System.Collections;
-using System.Globalization;
 
 namespace LyrionControl.JsonRpcClient.UnitTests
 {
@@ -16,24 +15,22 @@ namespace LyrionControl.JsonRpcClient.UnitTests
             var start = 0;
             var itemsPerResponse = 5;
 
-            var expected = new AlbumsQuery
+            var expected = new AlbumsQuery(start, itemsPerResponse)
             {
-                Method = RpcMethod.SlimRequest,
                 Params = new ArrayList
                 {
-                    "",
-                    new List<string>
+                    string.Empty,
+                    new ArrayList
                     {
                         QueryTypes.Albums,
-                        start.ToString(CultureInfo.InvariantCulture),
-                        itemsPerResponse.ToString(CultureInfo.InvariantCulture),
+                        start,
+                        itemsPerResponse,
                         "tags: t,j"
                     }
                 }
             };
 
-            var sut = new AlbumsQueryBuilder().Start(start)
-                .ItemsPerResponse(itemsPerResponse)
+            var sut = new AlbumsQueryBuilder(0, 5)
                 .WithTitle()
                 .WithArtworTrackId();
 

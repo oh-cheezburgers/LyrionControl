@@ -14,8 +14,7 @@ namespace LyrionControl.JsonRpcClient
         }
         public Task<AlbumsResponse?> GetAllAlbumsAsync()
         {   
-            var request = new AlbumsQueryBuilder().Start(0)
-                .ItemsPerResponse(1000)
+            var request = new AlbumsQueryBuilder(0, 1000)
                 .WithTitle()
                 .WithArtworTrackId()
                 .Build();
@@ -25,8 +24,7 @@ namespace LyrionControl.JsonRpcClient
 
         public Task<AlbumsResponse?> GetAlbumsByArtistIdAsync(string id)
         {
-            var request = new AlbumsQueryBuilder().Start(0)
-               .ItemsPerResponse(1000)
+            var request = new AlbumsQueryBuilder(0, 1000)
                .ByArtistId(id)
                .WithTitle()
                .WithArtworTrackId()
@@ -76,7 +74,7 @@ namespace LyrionControl.JsonRpcClient
 
         public Task<AlbumsResponse?> SearchAlbumsAsync(string term)
         {
-            var request = new AlbumsQueryBuilder().Start(0).ItemsPerResponse(1000).WithArtworTrackId().WithSearchTerm(term).Build();
+            var request = new AlbumsQueryBuilder(0, 1000).WithArtworTrackId().WithSearchTerm(term).Build();
             return rpcClient.MakeRequestAsync<AlbumsResponse>(request);
         }
 
